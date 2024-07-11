@@ -22,30 +22,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/categories": [
+    "/albums": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/categories.js"
+      "static/chunks/pages/albums.js"
     ],
-    "/singers": [
+    "/albums/create": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/singers.js"
+      "static/chunks/pages/albums/create.js"
     ],
-    "/songs": [
+    "/albums/edit/[id]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/songs.js"
-    ],
-    "/songs/edit/[id]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/songs/edit/[id].js"
-    ],
-    "/users": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/users.js"
+      "static/chunks/pages/albums/edit/[id].js"
     ]
   },
   "ampFirstPages": []

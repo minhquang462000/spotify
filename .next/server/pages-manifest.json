@@ -2,9 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/users": "pages/users.js",
-  "/singers": "pages/singers.js",
-  "/categories": "pages/categories.js",
-  "/songs": "pages/songs.js",
-  "/songs/edit/[id]": "pages/songs/edit/[id].js"
+  "/albums": "pages/albums.js",
+  "/albums/edit/[id]": "pages/albums/edit/[id].js",
+  "/albums/create": "pages/albums/create.js"
 }

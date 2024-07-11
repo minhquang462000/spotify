@@ -12,7 +12,7 @@ import routerProvider, {
 } from "@refinedev/nextjs-router";
 import type { NextPage } from "next";
 import { AppProps } from "next/app";
-
+import "../src/Css/scrollBar.css";
 import { Header } from "@components/header";
 import { ColorModeContextProvider } from "@contexts";
 import "@refinedev/antd/dist/reset.css";
@@ -24,6 +24,7 @@ import { TbCategoryFilled } from "react-icons/tb";
 import { FaUser } from "react-icons/fa";
 import { FaMicrophoneLines } from "react-icons/fa6";
 import { IoMusicalNotesSharp } from "react-icons/io5";
+import { IoIosAlbums } from "react-icons/io";
 import axios from "axios";
 import nookies from "nookies";
 
@@ -104,6 +105,14 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
                     show: "/songs/show/:id",
                     meta: { label: "Bài hát ", icon: <IoMusicalNotesSharp /> },
                   },
+                  {
+                    name: "albums",
+                    list: "/albums",
+                    create: "/albums/create",
+                    edit: "/albums/edit/:id",
+                    show: "/albums/show/:id",
+                    meta: { label: "Album ", icon: <IoIosAlbums /> },
+                  },
                 ]}
                 options={{
                   syncWithLocation: true,
@@ -112,7 +121,6 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
                   projectId: "s7Ojt5-NuQvpU-atjuUa",
                 }}
               >
-              
                 {renderComponent()}
                 <RefineKbar />
                 <UnsavedChangesNotifier />

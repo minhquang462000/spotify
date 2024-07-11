@@ -22,11 +22,6 @@ export default function Posts() {
       return [{ field: "name", operator: "eq", value: value.name }];
     },
   });
-  // const { selectProps } = useSelect<IUser>({
-  //   resource: "users",
-  //   optionLabel: "name",
-  //   optionValue: "_id",
-  // });
   return (
     <List title="Người dùng">
       <Form {...searchFormProps} style={{ marginBottom: 10 }} layout="inline">

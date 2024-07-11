@@ -1,0 +1,19 @@
+.scrollable-container::-webkit-scrollbar {
+  width: 10px; /* Chiều rộng của thanh trượt */
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Màu nền của thanh trượt */
+  border-radius: 20px; /* Bo tròn góc của thanh trượt */
+  overflow: hidden;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background: #333; /* Màu của thanh trượt */
+  border-radius: 20px; /* Bo tròn góc của thanh trượt */
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+  background: #666; /* Màu của thanh trượt khi hover */
+}
+

@@ -39,12 +39,23 @@ export interface ISong {
   name: string;
   song: string;
   lyric: string;
-  singers:ISinger[];
+  singers: ISinger[];
   comments: { _id: string };
   images: string;
-  categories:ICategory[];
+  categories: ICategory[];
   views: number;
   description: string;
-  likes:number
+  likes: number;
+  createdAt: any;
+}
+export interface IAlbum {
+  _id: string;
+  name: string;
+  description: string;
+  image: string;
+  songs: ISong[];
+  singers: ISinger[];
+  likes: number;
+  views: number;
   createdAt: any;
 }

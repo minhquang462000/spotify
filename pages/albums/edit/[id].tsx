@@ -4,12 +4,17 @@ import { ISinger, ISong, IUser } from "src/interfaces";
 
 export default function EditPosts() {
   const { formProps, saveButtonProps, queryResult } = useForm<IUser>({
-    resource: "users",
+    resource: "albums",
     action: "edit",
   });
 
   const { selectProps } = useSelect<ISong>({
     resource: "songs",
+    optionLabel: "name",
+    optionValue: "_id",
+  });
+  const { selectProps: selectProps2 } = useSelect<ISinger>({
+    resource: "singers",
     optionLabel: "name",
     optionValue: "_id",
   });
@@ -19,61 +24,42 @@ export default function EditPosts() {
         layout="vertical"
         {...formProps}
         onFinish={async (values: any) => {
-          let urlAvatar = values.avatar;
+          let urlImage = values.image;
 
-          if (values.avatar[0].response) {
-            urlAvatar = values.avatar[0].response[0];
+          if (values.image[0].response) {
+            urlImage = values.image[0].response[0];
           }
-          formProps!.onFinish!({ ...values, avatar: urlAvatar });
+          formProps!.onFinish!({ ...values, image: urlImage });
         }}
       >
         <Form.Item
-          label="Tên người dùng"
+          label="Tên Album"
           name="name"
           rules={[
             {
               required: true,
-              message: "Bạn chưa nhập tên người dùng",
+              message: "Bạn chưa nhập tên Album",
             },
           ]}
         >
           <Input />
         </Form.Item>
+     
         <Form.Item
-          label="Trạng thái"
-          name="status"
-
-        >
-          {/* <Checkbox.Group options={["Hoạt động", "Không hoạt động"]} /> */}
-
-          <Select
-            options={[
-              {
-                label: "Active",
-                value: 1,
-              },
-              {
-                label: "Inactive",
-                value: 0,
-              },
-            ]}
-          />
-        </Form.Item>
-        {/* <Form.Item
-          label="Nội dung"
-          name="content"
+          label="Mô Tả Ngắn"
+          name="description"
           rules={[
             {
               required: true,
-              message: "Bạn chưa nhập nội dung",
+              message: "Bạn chưa nhập mô tả ngắn",
             },
           ]}
         >
           <Input.TextArea />
-        </Form.Item> */}
+        </Form.Item>
         <Form.Item label="Ảnh">
           <Form.Item
-            name="avatar"
+            name="image"
             valuePropName="fileList"
             getValueFromEvent={getValueFromEvent}
             getValueProps={(value) => {
@@ -100,7 +86,7 @@ export default function EditPosts() {
             rules={[
               {
                 required: true,
-                message: "Bạn chưa chọn ảnh đại diện",
+                message: "Bạn chưa chọn ảnh cho Album",
               },
             ]}
           >
@@ -116,8 +102,8 @@ export default function EditPosts() {
           </Form.Item>
         </Form.Item>
         <Form.Item
-          label="Bài Hát Yêu Thích "
-          name={["likes"]}
+          label="Bài Hát Liên Kết "
+          name={["songs"]}
           getValueProps={(value) => {
             const ids: string[] = [];
             value?.forEach((item: any) => {
@@ -130,10 +116,30 @@ export default function EditPosts() {
             return { value: ids };
           }}
           rules={[
-            { required: true, message: "Bạn chưa nhập danh mục bài viết" },
+            { required: true, message: "Bạn chưa chọn bài hát liên kết" },
           ]}
         >
           <Select mode="multiple" {...selectProps} />
+        </Form.Item>
+        <Form.Item
+          label="Ca Sĩ Thể Hiện"
+          name={["singers"]}
+          getValueProps={(value) => {
+            const ids: string[] = [];
+            value?.forEach((item: any) => {
+              if (typeof item === "string") {
+                ids.push(item);
+              } else {
+                ids.push(item._id);
+              }
+            });
+            return { value: ids };
+          }}
+          rules={[
+            { required: true, message: "Bạn chưa nhập tên Ca sĩ" },
+          ]}
+        >
+          <Select mode="multiple" {...selectProps2} />
         </Form.Item>
       </Form>
     </Edit>

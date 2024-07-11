@@ -1,4 +1,5 @@
 import { SearchOutlined } from "@ant-design/icons";
+import MusicPlayer from "@components/MusicPlayer";
 import {
   DateField,
   DeleteButton,
@@ -12,7 +13,6 @@ import {
   TagField,
 } from "@refinedev/antd";
 import { Button, Col, Form, Input, Select, Space, Table } from "antd";
-import MusicPlayer from "components/MusicPlayer";
 import { GetServerSideProps } from "next";
 import React from "react";
 import { authProvider } from "src/authProvider";
