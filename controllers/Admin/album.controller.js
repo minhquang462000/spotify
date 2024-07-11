@@ -25,7 +25,6 @@ const update = async (req, res) => {
       singers,
       image,
       views,
-      lyric,
       likes,
       description,
     });

@@ -27,13 +27,13 @@ const checkDuplicateName = async (name) => {
 };
 const update = async (
   id,
-  { name, song, singers, images, views, likes, description }
+  { name, songs, singers, image, views, likes, description }
 ) => {
   return await Album.findByIdAndUpdate(id, {
     name,
-    song,
+    songs,
     singers,
-    images,
+    image,
     views,
     likes,
     description,
@@ -45,14 +45,14 @@ const remove = async (id) => {
 };
 const getOne = async (id) => {
   const doc = await Album.findById(id).exec();
-  const { singers, song } = doc;
+  const { singers, songs } = doc;
   singers.length > 0 &&
     (doc.singers = await Singer.find({ _id: { $in: singers } })
       .select("name avatar")
       .exec());
-  song.length > 0 &&
-    (doc.songs = await Song.find({ _id: { $in: song } })
-      .select("name image")
+  songs.length > 0 &&
+    (doc.songs = await Song.find({ _id: { $in: songs } })
+      .select("name images ")
       .exec());
   return doc;
 };
@@ -114,7 +114,7 @@ const getList = async ({ singer, song, start, end, name }) => {
       .select("name avatar")
       .exec();
     const songsDoc = await Song.find({ _id: { $in: songs } })
-      .select("name image")
+      .select("name images")
       .exec();
     docs[i].songs = songsDoc;
     docs[i].singers = singersDoc;
