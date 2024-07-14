@@ -7,6 +7,7 @@ const Comment = require("../models/comment.model");
 
 const create = async ({
   name,
+  albums,
   song,
   singers,
   images,
@@ -22,6 +23,7 @@ const create = async ({
   const doc = new Song({
     name,
     song,
+    albums,
     lyric,
     singers,
     images,
@@ -44,6 +46,7 @@ const update = async (
   {
     name,
     song,
+    albums,
     singers,
     images,
     lyric,
@@ -57,6 +60,7 @@ const update = async (
   return await Song.findByIdAndUpdate(id, {
     name,
     song,
+    albums,
     lyric,
     singers,
     images,
@@ -73,7 +77,7 @@ const remove = async (id) => {
 };
 const getOne = async (id) => {
   const doc = await Song.findById(id).exec();
-  const { singers, categories } = doc;
+  const { singers, categories ,albums} = doc;
   singers.length > 0 &&
     (doc.singers = await Singer.find({ _id: { $in: singers } })
       .select("name avatar")
@@ -81,10 +85,15 @@ const getOne = async (id) => {
   categories.length > 0 &&
     (doc.categories = await Category.find({ _id: { $in: categories } })
       .select("name image")
+      .exec() );
+
+  albums.length > 0 &&
+    (doc.albums = await Album.find({ _id: { $in: albums } })
+      .select("name image")
       .exec());
   return doc;
 };
-const getList = async ({ singer, category, start, end, name }) => {
+const getList = async ({ singer, category,albums, start, end, name }) => {
   let filter = {};
   let projection = {};
   let sort = {
@@ -106,6 +115,16 @@ const getList = async ({ singer, category, start, end, name }) => {
     } else {
       filter.categories = {
         $in: category.map((id) => new mongoose.Types.ObjectId(id)),
+      };
+    }
+  }
+
+  if (albums) {
+    if (_.isString(albums)) {
+      filter.albums = new mongoose.Types.ObjectId(albums);
+    } else {
+      filter.albums = {
+        $in: albums.map((id) => new mongoose.Types.ObjectId(id)),
       };
     }
   }

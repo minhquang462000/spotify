@@ -29,6 +29,11 @@ const songSchema = new Schema(
         ref: "Category",
       },
     ],
+    album:[ {
+      type: Schema.Types.ObjectId,
+      ref: "Album",
+    },
+  ],
     views: {
       type: Number,
     },

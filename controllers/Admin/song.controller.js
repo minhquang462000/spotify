@@ -5,6 +5,7 @@ const create = async (req, res) => {
     const {
       name,
       song,
+      albums,
       singers,
       images,
       views,
@@ -17,6 +18,7 @@ const create = async (req, res) => {
     const doc = await SongService.create({
       name,
       song,
+      albums,
       singers,
       images,
       views,
@@ -36,6 +38,7 @@ const update = async (req, res) => {
     const {
       name,
       song,
+      albums,
       singers,
       images,
       views,
@@ -49,6 +52,7 @@ const update = async (req, res) => {
     await SongService.update(id, {
       name,
       song,
+      albums,
       singers,
       images,
       views,
@@ -83,12 +87,13 @@ const getOne = async (req, res) => {
 };
 const getList = async (req, res) => {
   try {
-    const { _start, _end, singer, category, name } = req.query;
+    const { _start, _end, singer, category, name,albums } = req.query;
     const start = parseInt(_start) || 0;
     const end = parseInt(_end) || 10;
     const { docs, totalDoc } = await SongService.getList({
       singer,
       category,
+      albums,
       start,
       end,
       name
