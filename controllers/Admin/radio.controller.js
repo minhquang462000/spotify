@@ -1,15 +1,15 @@
-const AlbumService = require("../../services/album.service");
+const RadioService = require("../../services/radio.service");
 const create = async (req, res) => {
   try {
     const { name, songs, singers, image, description } = req.body;
-    const doc = await AlbumService.create({
+    const doc = await RadioService.create({
       name,
       songs,
       singers,
       image,
       description,
     });
-    res.status(201).json({ message: "Album created successfully", data: doc });
+    res.status(201).json({ message: "Radio created successfully", data: doc });
   } catch (e) {
     res.status(400).json({ error: e.message, message: " server error" });
   }
@@ -18,7 +18,7 @@ const update = async (req, res) => {
   try {
     const { name, songs, singers, image, views, likes, description } = req.body;
     const { id } = req.params;
-    await AlbumService.update(id, {
+    await RadioService.update(id, {
       name,
       songs,
       singers,
@@ -27,7 +27,7 @@ const update = async (req, res) => {
       likes,
       description,
     });
-    res.status(201).json({ message: "Album updated successfully" });
+    res.status(201).json({ message: "Radio updated successfully" });
   } catch (e) {
     res.status(400).json({ error: e.message, message: " server error" });
   }
@@ -35,7 +35,7 @@ const update = async (req, res) => {
 const remove = async (req, res) => {
   const { id } = req.params;
   try {
-    const doc = await AlbumService.remove(id);
+    const doc = await RadioService.remove(id);
     res.status(200).json(doc);
   } catch (e) {
     res.status(400).json({ error: e.message, message: " server error" });
@@ -44,7 +44,7 @@ const remove = async (req, res) => {
 const getOne = async (req, res) => {
   const { id } = req.params;
   try {
-    const doc = await AlbumService.getOne(id);
+    const doc = await RadioService.getOne(id);
     res.status(200).json(doc);
   } catch (e) {
     res.status(400).json({ error: e.message, message: " server error" });
@@ -55,7 +55,7 @@ const getList = async (req, res) => {
     const { _start, _end, singer, name } = req.query;
     const start = parseInt(_start) || 0;
     const end = parseInt(_end) || 10;
-    const { docs, totalDoc } = await AlbumService.getList({
+    const { docs, totalDoc } = await RadioService.getList({
       singer,
       start,
       end,

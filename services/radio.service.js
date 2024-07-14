@@ -1,6 +1,6 @@
 const Song = require("../models/song.model");
 const Singer = require("../models/singer.model");
-const Album = require("../models/album.model");
+const Radio = require("../models/radio.model");
 const _ = require("underscore");
 const { default: mongoose } = require("mongoose");
 
@@ -8,7 +8,7 @@ const create = async ({ name, songs, singers, image, description }) => {
   if (await checkDuplicateName(name)) {
     throw new Error("This Song already exists");
   }
-  const doc = new Album({
+  const doc = new Radio({
     name,
     songs,
     singers,
@@ -21,7 +21,7 @@ const create = async ({ name, songs, singers, image, description }) => {
 };
 
 const checkDuplicateName = async (name) => {
-  const songName = await Album.findOne({ name }).exec();
+  const songName = await Radio.findOne({ name }).exec();
   if (songName) return true;
   return false;
 };
@@ -29,7 +29,7 @@ const update = async (
   id,
   { name, songs, singers, image, views, likes, description }
 ) => {
-  return await Album.findByIdAndUpdate(id, {
+  return await Radio.findByIdAndUpdate(id, {
     name,
     songs,
     singers,
@@ -41,10 +41,10 @@ const update = async (
 };
 
 const remove = async (id) => {
-  return await Album.findByIdAndDelete(id).exec();
+  return await Radio.findByIdAndDelete(id).exec();
 };
 const getOne = async (id) => {
-  const doc = await Album.findById(id).exec();
+  const doc = await Radio.findById(id).exec();
   const { singers, songs } = doc;
   singers.length > 0 &&
     (doc.singers = await Singer.find({ _id: { $in: singers } })
@@ -85,13 +85,14 @@ const getList = async ({ singer, song, start, end, name }) => {
       score: { $meta: "textScore" },
     };
   }
-  const docs = await Album.find(filter, projection)
+  const docs = await Radio.find(filter, projection)
     .sort(sort)
     .skip(start)
+    .select("-comments")
     .limit(end - start)
     .lean()
     .exec();
-  const totalDoc = await Album.countDocuments(filter).exec();
+  const totalDoc = await Radio.countDocuments(filter).exec();
   for (let i = 0; i < docs.length; i++) {
     const { singers, songs } = docs[i];
     const singersDoc = await Singer.find({ _id: { $in: singers } })
