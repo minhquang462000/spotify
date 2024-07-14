@@ -1,20 +1,27 @@
-import ListHomePageSection from "@/components/Lists/ListHomePageSection";
+
+import ListAlbumHome from "@/components/Lists/ListAlbumHome";
+import ListRadioHome from "@/components/Lists/ListRadioHome";
+import ListRatingHome from "@/components/Lists/ListRatingHome";
+import ListSingerHome from "@/components/Lists/ListSingerHome";
+import PlaylistOnPage from "@/components/Lists/PlayListOnPage";
+import FooterChild from "@/components/RenderPageChild/FooterChild";
 import HeaderChild from "@/components/RenderPageChild/HeaderChid";
 import MainSidebar from "@/components/SideBar/MainSidebar";
-import { MainLayout } from "@/layouts";
 
 export default function Home() {
   return (
-    <main className="w-full grid grid-cols-4  text-white">
-      <MainSidebar />
-      <div className="col-span-3 bg-[#121212] my-2 rounded-md overflow-hidden">
-        <header className="w-full py-2 px-6 bg-[#101010]">
-          <HeaderChild />
-        </header>
-        <div className="bg-gradient-to-t from-transparent to-[#232323]">
-          <ListHomePageSection titleList="Nghệ sĩ phổ biến" urlLink="" />
+    <main className="col-span-4 w-full h-full overflow-y-scroll  body-childHome overflow-hidden bg-[#121212]  relative box-border rounded-md ">
+      <HeaderChild />
+      <div className="flex  flex-col gap-4">
+        <div className="bg-gradient-to-t py-2 from-transparent to-[#1f1f1f]">
+          <ListSingerHome />
         </div>
+        <ListAlbumHome />
+        <ListRadioHome />
+        <ListRatingHome />
+        <PlaylistOnPage />
       </div>
+      <FooterChild />
     </main>
   );
 }

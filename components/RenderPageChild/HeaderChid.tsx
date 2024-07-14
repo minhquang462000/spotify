@@ -3,22 +3,23 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-export interface IHeaderChildProps {}
+export interface IHeaderChildProps { }
 
 export default function HeaderChild(props: IHeaderChildProps) {
   const router = useRouter();
   return (
-    <div className="flex justify-between items-center w-full">
+    <header
+      className="flex justify-between w-full    max-w-[1900px] sticky top-0  z-[999] bg-opacity-50  bg-[#1a1a1a] py-1 h-16 px-6 items-center ">
       <div className="flex gap-3">
         <button
           onClick={() => router.back()}
-          className="bg-[#000000b3] rounded-full w-8 h-8 flex items-center justify-center"
+          className="bg-[#000000b3] hover:bg-[#333] rounded-full w-8 h-8 flex items-center justify-center"
         >
           <IoIosArrowBack size={25} color="#9a9a9a" />
         </button>
         <button
           onClick={() => router.forward()}
-          className="bg-[#000000b3] rounded-full w-8 h-8 flex items-center justify-center"
+          className="bg-[#000000b3] rounded-full hover:bg-[#333] w-8 h-8 flex items-center justify-center"
         >
           <IoIosArrowForward size={25} color="#9a9a9a" />
         </button>
@@ -35,6 +36,6 @@ export default function HeaderChild(props: IHeaderChildProps) {
           </button>
         </Link>
       </div>
-    </div>
+    </header>
   );
 }

@@ -1,4 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.body-childHome::-webkit-scrollbar {
+  width: 14px;
+ 
+}
+.layout-main::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Hiển thị thanh cuộn khi hover vào */
+.body-childHome:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+/* Tùy chỉnh màu sắc của phần trượt */
+.body-childHome::-webkit-scrollbar-thumb {
+  background-color: #666; /* màu của phần trượt */
+  visibility: hidden;
+  transition: all 2s ease;
+  overflow: hidden;
+
+  border-radius: 10px;
+}
 
