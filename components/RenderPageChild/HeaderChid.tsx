@@ -1,15 +1,17 @@
 "use client";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export interface IHeaderChildProps { }
 
 export default function HeaderChild(props: IHeaderChildProps) {
+  const pathName = usePathname();
   const router = useRouter();
   return (
     <header
-      className="flex justify-between w-full    max-w-[1900px] sticky top-0  z-[999] bg-opacity-50  bg-[#1a1a1a] py-1 h-16 px-6 items-center ">
+      className={`flex justify-between w-full    max-w-[1900px] sticky top-0  z-[999] 
+      ${pathName === "/" ? "bg-opacity-50  bg-[#1a1a1a]" : ""} py-1 h-16 px-6 items-center `}>
       <div className="flex gap-3">
         <button
           onClick={() => router.back()}

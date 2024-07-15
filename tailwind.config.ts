@@ -13,6 +13,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      backgroundSize: {
+        "custom-singer": "100% max(35%, 35vh)",
+      },
     },
   },
   plugins: [],

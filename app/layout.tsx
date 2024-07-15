@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import MainSidebar from "@/components/SideBar/MainSidebar";
-import Link from "next/link";
+import InfoFooterChild from "@/components/RenderPageChild/InfoFooterChild";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,29 +19,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body style={{ backgroundColor: "#000000", position: "relative" }}
-        className={`${inter.className} layout-main w-full gap-2 px-2 grid grid-cols-5  text-white`}>
-        <div className="col-span-1 w-full pt-2  mb-14 relative">
+        className={`${inter.className}  w-full gap-2  h-screen px-2 flex text-white `}>
+        <div className="w-max pt-2  pb-16  h-full relative">
           <MainSidebar />
         </div>
-        <div className="col-span-4 pb-16 pt-2 h-screen ">
+        <div className="w-full pb-16  pt-2 h-full ">
           {children}
         </div>
-        <nav className="w-full flex fixed bottom-0 justify-between   h-14 items-center p-3 text-sm col-span-5 bg-gradient-to-r from-[#af2896] to-[#509bf5]">
-          <span>
-            <Link href="">
-              <p className="font-bold text-xs mb-1">Xem trước  Spotify</p>
-            </Link>
-            <Link href="">
-              <p>Đăng ký để nghe không giới hạn các bài hát và podcast với quảng cáo không thường xuyên.Không cần thẻ tín dụng.</p>
-            </Link>
-          </span>
-          <Link href="/register">
-            <button
-              className="text-black font-sans font-bold text-sm bg-white py-3 px-8 mr-5 hover:scale-105  rounded-full">
-              Đăng ký miễn phí
-            </button>
-          </Link>
-        </nav>
+        <InfoFooterChild />
       </body>
     </html>
   );

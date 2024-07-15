@@ -6,8 +6,8 @@ export interface IFooterSideBarProps {}
 
 export default function FooterSideBar(props: IFooterSideBarProps) {
   return (
-    <footer className=" px-6 text-sm text-[#a7a7a7]  py-5">
-      <ul className="flex my-3 flex-wrap gap-x-4 gap-y-3">
+    <footer className=" px-6 text-sm text-[#a7a7a7] w-full  py-5">
+      <ul className="flex my-3 text-[10px] w-3/4 flex-wrap gap-x-4  gap-y-2">
         <li>
           <Link href="">Pháp lý</Link>
         </li>
@@ -26,7 +26,7 @@ export default function FooterSideBar(props: IFooterSideBarProps) {
         <li>
           <Link href={""}>Hỗ trợ tiếp cập</Link>
         </li>
-        <li className="w-full">
+        <li className="w-full hover:underline">
           <Link href={""}>Cookie</Link>
         </li>
       </ul>

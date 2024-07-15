@@ -6,11 +6,11 @@ import ListSingerHome from "@/components/Lists/ListSingerHome";
 import PlaylistOnPage from "@/components/Lists/PlayListOnPage";
 import FooterChild from "@/components/RenderPageChild/FooterChild";
 import HeaderChild from "@/components/RenderPageChild/HeaderChid";
-import MainSidebar from "@/components/SideBar/MainSidebar";
+import { MainLayout } from "@/layouts";
 
 export default function Home() {
   return (
-    <main className="col-span-4 w-full h-full overflow-y-scroll  body-childHome overflow-hidden bg-[#121212]  relative box-border rounded-md ">
+    <main className="w-full  h-full overflow-y-scroll  body-childHome overflow-hidden bg-[#121212]  relative box-border rounded-md ">
       <HeaderChild />
       <div className="flex  flex-col gap-4">
         <div className="bg-gradient-to-t py-2 from-transparent to-[#1f1f1f]">
