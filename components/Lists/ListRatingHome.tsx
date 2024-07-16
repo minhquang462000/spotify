@@ -55,8 +55,8 @@ export interface IListRatHomeProps {
 export default function ListRatingHome(props: IListRatHomeProps) {
   return (
     <div className='max-w-[1900px]'>
-      <TitleList titleList='Bảng xếp hạng Nổi bật' urlLink="" showMore={false} />
-      <div className="w-full grid grid-cols-6 max-h-[290px] overflow-hidden   px-3">
+      <TitleList titleList='Bảng xếp hạng Nổi bật' urlLink="" showMore={""} />
+      <div className="w-full flex flex-wrap max-h-[280px] overflow-hidden   px-3">
         {arrList.map((item, index) => (
          <Link href={item.urlLink} key={index}>
           <CardListHome

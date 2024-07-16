@@ -5,7 +5,7 @@ export interface ICardRadioHomeProps { }
 
 export default function CardRadioHome(props: ICardRadioHomeProps) {
     return (
-        <div className="flex flex-col cursor-pointer  group rounded-md  p-3  hover:bg-gradient-to-t from-[#1a1a1a] to-transparent gap-2">
+        <div className="flex flex-col max-w-[200px] cursor-pointer  group rounded-md  p-3  hover:bg-gradient-to-t from-[#1a1a1a] to-transparent gap-2">
             <div className="w-[160px]  relative h-[160px]">
                 <img
                     className="w-full h-full rounded-md object-cover"

@@ -18,14 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{ backgroundColor: "#000000", position: "relative" }}
-        className={`${inter.className}  w-full gap-2  h-screen px-2 flex text-white `}>
+      <body
+        style={{ backgroundColor: "#000000", position: "relative" }}
+        className={`${inter.className}  w-full gap-2  h-screen px-2 flex text-white `}
+      >
         <div className="w-max pt-2  pb-16  h-full relative">
           <MainSidebar />
         </div>
-        <div className="w-full pb-16  pt-2 h-full ">
-          {children}
-        </div>
+        <div className="w-full pb-16  pt-2 h-full ">{children}</div>
         <InfoFooterChild />
       </body>
     </html>
