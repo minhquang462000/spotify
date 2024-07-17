@@ -5,7 +5,7 @@ import ListSongArtistPage from "../Lists/ListSongArtistPage";
 import FooterChild from "../RenderPageChild/FooterChild";
 import { useEffect, useRef, useState } from "react";
 
-export interface IAppProps {}
+export interface IAppProps { }
 
 export default function PageArtist(props: IAppProps) {
   const [isVisible, setIsVisible] = useState(0);
@@ -39,7 +39,6 @@ export default function PageArtist(props: IAppProps) {
     >
       <HeaderChild
         isVisible={isVisible}
-      
         hidden={false}
       />
       <CardSingerPage />

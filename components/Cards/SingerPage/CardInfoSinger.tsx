@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import CardSingerDetail from "./CardSingerDetail";
 
-export interface ICardInfoSingerProps {}
+export interface ICardInfoSingerProps { }
 
 export default function CardInfoSinger(props: ICardInfoSingerProps) {
   const [openDetailSinger, setOpenDetailSinger] = useState(false);
@@ -19,11 +19,12 @@ export default function CardInfoSinger(props: ICardInfoSingerProps) {
     };
   }, [wrapperRef, setOpenDetailSinger]);
   return (
-    <div className="p-3">
-      <h4 className="font-bold py-2">Giới thiệu</h4>
+   
+      <div  className =" px-5 w-full">
+      <h4 className="font-bold text-xl py-2">Giới thiệu</h4>
       <div
         onClick={() => setOpenDetailSinger(true)}
-        className="max-w-[850px] relative w-full h-[500px] bg-center  hover:scale-[1.01] rounded-md overflow-hidden"
+        className="w-3/4 relative max-w-[1200px]  h-[30vw] max-h-[700px] bg-center  hover:scale-[1.01] rounded-md overflow-hidden"
       >
         <img
           className="w-full h-full absolute top-0 left-0 object-cover "
@@ -60,9 +61,8 @@ export default function CardInfoSinger(props: ICardInfoSingerProps) {
         </nav>
       </div>
       <div
-        className={`bg-black bg-opacity-70 h-full w-full fixed left-0 z-[888] top-0 ${
-          openDetailSinger ? "block" : "hidden"
-        }`}
+        className={`bg-black bg-opacity-70 h-full w-full fixed left-0 z-[888] top-0 ${openDetailSinger ? "block" : "hidden"
+          }`}
       ></div>
       <div
         ref={wrapperRef}
