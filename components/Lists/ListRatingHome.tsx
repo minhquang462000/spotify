@@ -7,8 +7,6 @@ import imgSongUSA from "@/public/images/TopSongUsa.jpg"
 import img50Global from "@/public/images/top50Global.jpg"
 import imgViralUsa from "@/public/images/viral50Usa.jpg"
 import imgViralGlobal from "@/public/images/viral50Global.jpg"
-import { title } from 'process';
-import { info } from 'console';
 import Link from 'next/link';
 
 const arrList = [

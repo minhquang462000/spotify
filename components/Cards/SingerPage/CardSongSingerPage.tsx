@@ -26,7 +26,7 @@ export default function CardSongSingerPage(props: ICardSongSingerPageProps) {
     <div
       onClick={() => setShowPlay(true)}
       ref={wrapperRef}
-      className={`hover:bg-[#383737] rounded-md flex gap-4 group items-center py-2 px-4 ${
+      className={`hover:bg-[#383737] rounded-md flex gap-4 h-[65px] n group items-center  px-4 ${
         showPlay && "bg-[#5a5a5a] hover:bg-[#5a5a5a]"
       }`}
     >
