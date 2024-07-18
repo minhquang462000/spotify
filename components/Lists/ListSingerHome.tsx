@@ -1,15 +1,33 @@
 import Link from "next/link";
 import * as React from "react";
 import CardSingerHome from "../Cards/CardSingerHome";
-import TitleList from "./TitleList";
 
-export interface IListSingerHomeProps {}
+
+export interface IListSingerHomeProps {
+  titleList: string;
+  urlLink: string;
+  showMore: string;
+}
 
 export default function ListSingerHome(props: IListSingerHomeProps) {
+  const { titleList, urlLink, showMore } = props;
   return (
     <div className="max-w-[1900px]">
-      <TitleList titleList="Nghệ sĩ phổ biến" urlLink="" showMore={"Hiện tất cả"} />
-      <div className="w-full flex flex-wrap max-h-[270px]  overflow-hidden px-3">
+      <nav className="flex justify-between px-4 mb-3 items-center font-bold">
+        <h3 className="text-2xl hover:underline">
+          <Link href={urlLink}>{titleList}</Link>
+        </h3>
+        <p
+          className={
+            showMore.length === 0
+              ? "hidden"
+              : "text-sm text-[#666] hover:underline"
+          }
+        >
+          <Link href={urlLink}>{showMore}</Link>
+        </p>
+      </nav>
+      <div className="w-full px-1  flex gap-y-10 max-h-[280px] overflow-hidden  ">
         <Link href={"artist/1"}>
           {" "}
           <CardSingerHome />

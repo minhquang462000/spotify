@@ -1,19 +1,18 @@
-import * as React from "react";
-import TitleList from "./TitleList";
-import CardListHome from "../Cards/CardListHome";
+
+import CardListHome from "../../Cards/CardListHome";
 import Link from "next/link";
 
-export interface IListProductProps {
+export interface IListProductHomeProps {
   titleList: string;
   urlLink: string;
   showMore: string;
 }
 
-export default function ListProduct(props: IListProductProps) {
+export default function ListProductHome(props: IListProductHomeProps) {
   const { titleList, urlLink, showMore } = props;
   return (
     <div className="max-w-[1900px]">
-      <nav className="flex justify-between px-4 items-center font-bold">
+      <nav className="flex justify-between px-4 mb-3 items-center font-bold">
         <h3 className="text-2xl hover:underline">
           <Link href={urlLink}>{titleList}</Link>
         </h3>
@@ -30,7 +29,7 @@ export default function ListProduct(props: IListProductProps) {
       <div className="w-full flex gap-y-10 max-h-[280px] overflow-hidden  px-1">
         <CardListHome
           info="Sơn Tùng Mtp"
-          title={``}
+          title={`mtp M-TP`}
           urlImage="https://tse1.mm.bing.net/th?id=OIP.HrxGNwAbBFy98wkBUh_0tgHaD3&pid=Api&P=0&h=220"
         />
         <CardListHome

@@ -1,6 +1,6 @@
 
-import CardListHome from '../Cards/CardListHome';
-import TitleList from './TitleList';
+import CardListHome from '../../Cards/CardListHome';
+import TitleList from '../TitleList';
 import imgtopWorld from "@/public/images/topWorld.jpg"
 import imgtop50USA from "@/public/images/Top50Usa.jpg"
 import imgSongUSA from "@/public/images/TopSongUsa.jpg"

@@ -1,9 +1,5 @@
-import CardInfoSinger from "@/components/Cards/SingerPage/CardInfoSinger";
-import CardSingerPage from "@/components/Cards/SingerPage/CardSingerPage";
-import ListSongArtistPage from "@/components/Lists/ListSongArtistPage";
+
 import PageArtist from "@/components/Pages/PageArtist";
-import FooterChild from "@/components/RenderPageChild/FooterChild";
-import HeaderChild from "@/components/RenderPageChild/HeaderChid";
 
 export interface IpageProps {}
 

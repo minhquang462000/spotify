@@ -1,14 +1,14 @@
 "use client";
 import { FaPlay } from "react-icons/fa";
 import { PiDotsThreeBold } from "react-icons/pi";
-import FunctionBar from "../Cards/SingerPage/FunctionBar";
+import FunctionBar from "../../Cards/SingerPage/FunctionBar";
 import { useEffect, useRef, useState } from "react";
-import CardSongSingerPage from "../Cards/SingerPage/CardSongSingerPage";
-import CardInfoSinger from "../Cards/SingerPage/CardInfoSinger";
-import FooterChild from "../RenderPageChild/FooterChild";
-import ListAlbumHome from "./ListProduct";
-import ListSpongSingerPage from "./ListFamousRelease";
+import CardSongSingerPage from "../../Cards/SingerPage/CardSongSingerPage";
+import CardInfoSinger from "../../Cards/SingerPage/CardInfoSinger";
+import FooterChild from "../../RenderPageChild/FooterChild";
 import ListFamousRelease from "./ListFamousRelease";
+import ListProductArtistPage from "./ListProductArtistPage";
+import ListSingerHome from "../ListSingerHome";
 
 export interface IFunctionBarProps {
   isVisible: number;
@@ -34,8 +34,9 @@ export default function ListSongArtistPage(props: IFunctionBarProps) {
     <section className=" w-full relative -z-20  flex flex-col gap-5 bg-[#121212]">
       <div className="absolute top-0  bg-gradient-to-t -z-10 to-[#494949] from-transparent left-0 w-full h-[250px]" />
       <div
-        className={`flex gap-8 pt-5 px-5  items-center ${isVisible > 10 && "hidden"
-          }`}
+        className={`flex gap-8 pt-5 px-5  items-center ${
+          isVisible > 10 && "hidden"
+        }`}
       >
         <button className="bg-[#1fdf64] shadow-md shadow-[#161616] hover:scale-105 transition-all duration-300   flex justify-center items-center w-14 h-14 rounded-full ">
           <FaPlay size={20} className="place-items-center" color="black" />
@@ -54,16 +55,18 @@ export default function ListSongArtistPage(props: IFunctionBarProps) {
             <PiDotsThreeBold size={40} />
           </button>
           <div
-            className={`absolute top-14  w-[350px]  left-0 ${isShowFunctionBar ? "block" : "hidden"
-              }`}
+            className={`absolute top-14  w-[350px]  left-0 ${
+              isShowFunctionBar ? "block" : "hidden"
+            }`}
           >
             <FunctionBar />
           </div>
         </div>
       </div>
       <div
-        className={` w-full px-5 mt-3 ${isShowMore ? "h-max" : "h-[370px] overflow-hidden"
-          } `}
+        className={` w-full px-5 mt-3 ${
+          isShowMore ? "h-max" : "h-[370px] overflow-hidden"
+        } `}
       >
         <h3 className="text-2xl  font-bold">Phổ biến</h3>
         <div className={` w-full pt-3  h-max`}>
@@ -82,9 +85,35 @@ export default function ListSongArtistPage(props: IFunctionBarProps) {
       >
         {isShowMore ? "Ẩn bớt" : "Xem thêm"}
       </button>
-      <ListFamousRelease />
-      <ListAlbumHome titleList="Album" urlLink="" showMore="Xem danh sách đĩa nhạc" />
-      <CardInfoSinger />
+      <div className="w-full flex flex-col gap-5 px-2">
+        <ListFamousRelease />
+        <ListProductArtistPage
+          titleList="Album"
+          urlLink=""
+          showMore="Xem danh sách đĩa nhạc"
+        />
+        <ListProductArtistPage
+          titleList="Đĩa đơn và Đĩa mở rộng (EP)"
+          urlLink=""
+          showMore="Xem danh sách đĩa nhạc"
+        />
+        <ListProductArtistPage
+          titleList="Có sự xuất hiện của Sơn Tùng Mtp"
+          urlLink=""
+          showMore="Hiện tất cả"
+        />
+        <ListSingerHome
+          titleList="Fan cũng thích"
+          urlLink=""
+          showMore="Hiện tất cả"
+        />
+        <CardInfoSinger />
+        <ListProductArtistPage
+          titleList="Có sự xuất hiện của Sơn Tùng Mtp"
+          urlLink=""
+          showMore="Hiện tất cả"
+        />
+      </div>
       <FooterChild />
     </section>
   );

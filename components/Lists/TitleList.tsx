@@ -13,7 +13,7 @@ export default function TitleList({
   showMore,
 }: ITitleListProps) {
   return (
-    <nav className="flex justify-between px-6 py-4 items-center font-bold">
+    <nav className="flex justify-between px-5 py-4 items-center font-bold">
       <h3 className="text-2xl hover:underline">
         <Link href={urlLink}>{titleList}</Link>
       </h3>

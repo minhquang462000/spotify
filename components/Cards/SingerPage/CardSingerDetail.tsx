@@ -28,7 +28,6 @@ export default function CardSingerDetail(props: ICardSingerDetailProps) {
             src="https://nld.mediacdn.vn/2019/6/28/poster-official-15616831262551390324483-crop-15616834519251919446428.jpg"
             alt=""
           />
-        
         </div>
         <div className="grid text-[#999] text-sm font-semibold bg-[#121212] px-8 py-6 grid-cols-3">
           <div>
@@ -100,24 +99,25 @@ export default function CardSingerDetail(props: ICardSingerDetailProps) {
           <nav className="col-span-2 ">
             <p>
               Nguyễn Thanh Tùng, born in 1994, known professionally as Sơn Tùng
-              M-TP, is a Vietnamese singer, songwriter, producer, and actor. He is
-              not only known as one of the most successful Vietnamese artists and
-              as the "Prince of V-pop", but also as the Chairman of three
+              M-TP, is a Vietnamese singer, songwriter, producer, and actor. He
+              is not only known as one of the most successful Vietnamese artists
+              and as the "Prince of V-pop", but also as the Chairman of three
               self-created companies: M-TP Entertainment, M-TP Talent and M-TP &
               Friends. He has received many achievements: a MTV Europe Music
-              Award, an Mnet Asian Music Award, appeared on Forbes Vietnam's 2018
-              30 Under 30 list, and is also the first Vietnamese musician to enter
-              the Billboard Social 50. Up until now, he has already released a
-              total of 25 songs, such as "Cơn mưa ngang qua", "Em của ngày hôm
-              qua", " Âm thầm bên em", and many more. His single "Chạy ngay đi"
-              was released with a music video featuring Thai actress Davika
-              Hoorne, and with a collaboration with rapper Snoop Dogg, he went on
-              and created the big hit "Hãy trao cho anh". After releasing "Có chắc
-              yêu là đây" in 2020, the song became the 3rd-most-streamed Youtube
-              premiere at the time with 902,000 live viewers. As we all know,
-              music is, without a doubt, the easiest way to connect people. For
-              Sơn Tùng M-TP, music is everything he ever wanted to offer to the
-              world around him with all his heart and soul.
+              Award, an Mnet Asian Music Award, appeared on Forbes Vietnam's
+              2018 30 Under 30 list, and is also the first Vietnamese musician
+              to enter the Billboard Social 50. Up until now, he has already
+              released a total of 25 songs, such as "Cơn mưa ngang qua", "Em của
+              ngày hôm qua", " Âm thầm bên em", and many more. His single "Chạy
+              ngay đi" was released with a music video featuring Thai actress
+              Davika Hoorne, and with a collaboration with rapper Snoop Dogg, he
+              went on and created the big hit "Hãy trao cho anh". After
+              releasing "Có chắc yêu là đây" in 2020, the song became the
+              3rd-most-streamed Youtube premiere at the time with 902,000 live
+              viewers. As we all know, music is, without a doubt, the easiest
+              way to connect people. For Sơn Tùng M-TP, music is everything he
+              ever wanted to offer to the world around him with all his heart
+              and soul.
             </p>
             <div className="flex gap-2 mt-8 items-center">
               <span className="w-8 h-8  bg-[#3a3a3a] flex justify-center items-center rounded-full ">
