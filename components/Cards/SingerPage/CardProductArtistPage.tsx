@@ -12,8 +12,8 @@ export interface ICardAlbumHomeProps {
 export default function CardProductArtistPage(props: ICardAlbumHomeProps) {
   const { urlImage, title, info, type } = props;
   return (
-    <div className="flex flex-col cursor-pointer max-w-[200px]   group rounded-md  p-3   hover:bg-gradient-to-t from-[#1a1a1a] to-transparent gap-1">
-      <div className="w-[180px] mx-auto  relative h-[180px] min-w-[150px] min-h-[150px]">
+    <div className="flex flex-col cursor-pointer  w-full  group hover:bg-[#191919] rounded-md  p-2    gap-2">
+      <div className="max-w-[180px]  aspect-square mx-auto w-full  relative  ">
         <img
           className="w-full h-full rounded-md  object-cover"
           src={urlImage}

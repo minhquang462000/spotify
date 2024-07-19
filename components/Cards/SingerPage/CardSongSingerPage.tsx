@@ -6,7 +6,7 @@ import { CiHeart } from "react-icons/ci";
 import { FaPlay } from "react-icons/fa";
 import { PiDotsThreeBold } from "react-icons/pi";
 
-export interface ICardSongSingerPageProps { }
+export interface ICardSongSingerPageProps {}
 
 export default function CardSongSingerPage(props: ICardSongSingerPageProps) {
   const [showPlay, setShowPlay] = useState(false);
@@ -26,19 +26,22 @@ export default function CardSongSingerPage(props: ICardSongSingerPageProps) {
     <div
       onClick={() => setShowPlay(true)}
       ref={wrapperRef}
-      className={`hover:bg-[#383737] rounded-md flex gap-4 h-[65px] n group items-center  px-3 ${showPlay && "bg-[#5a5a5a] hover:bg-[#5a5a5a]"
-        }`}
+      className={`hover:bg-[#383737] rounded-md flex gap-4 h-[65px]  group items-center  px-3 ${
+        showPlay && "bg-[#5a5a5a] hover:bg-[#5a5a5a]"
+      }`}
     >
       <div className="relative group/popup">
         <button
-          className={`w-8 h-full flex items-center justify-center ${showPlay ? "block" : " group-hover:block  hidden"
-            }`}
+          className={`w-8 h-full flex items-center justify-center ${
+            showPlay ? "block" : " group-hover:block  hidden"
+          }`}
         >
           <FaPlay className="m-auto" size={17} />
         </button>
         <p
-          className={`w-8 h-full  text-center font-serif text-2xl font-light ${showPlay ? "hidden" : "block group-hover:hidden"
-            }`}
+          className={`w-8 h-full  text-center font-serif text-2xl font-light ${
+            showPlay ? "hidden" : "block group-hover:hidden"
+          }`}
         >
           1
         </p>
@@ -57,16 +60,18 @@ export default function CardSongSingerPage(props: ICardSongSingerPageProps) {
         <p className="justify-self-end">15.502.403</p>
         <ul className="flex gap-5 justify-end justify-self-end items-center">
           <li
-            className={`mr-5 relative group/popup cursor-pointer hover:text-white ${showPlay ? "visible" : " group-hover:visible  invisible"
-              }`}
+            className={`mr-5 relative group/popup cursor-pointer hover:text-white ${
+              showPlay ? "visible" : " group-hover:visible  invisible"
+            }`}
           >
             <CiHeart size={25} />
             <PopupText content="Lưu vào thư viện" />
           </li>
           <li>4.39</li>
           <li
-            className={`cursor-pointer ${showPlay ? "visible" : " group-hover:visible  invisible"
-              }`}
+            className={`cursor-pointer ${
+              showPlay ? "visible" : " group-hover:visible  invisible"
+            }`}
           >
             <PiDotsThreeBold size={25} />
           </li>

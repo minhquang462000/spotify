@@ -33,7 +33,7 @@ export default function PageArtist(props: IAppProps) {
   return (
     <div
       ref={scrollRef}
-      className=" absolute overflow-y-scroll bg-[] z-20  top-0 right-0 body-childHome w-full h-full"
+      className=" absolute overflow-y-scroll  z-20  top-0 right-0 body-childHome w-full h-full"
     >
       <HeaderChild isVisible={isVisible} hidden={false} />
       <CardSingerPage />

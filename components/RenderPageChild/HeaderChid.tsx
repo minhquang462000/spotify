@@ -22,7 +22,7 @@ export default function HeaderChild({ isVisible, hidden }: IHeaderChildProps) {
   }
   return (
     <header
-      className={` w-full   bg-[#1a1a1a]  sticky top-0  z-[999] 
+      className={` w-full   bg-black bg-opacity-25  sticky top-0  z-[999] 
       ${hidden ? "bg-opacity-50  " : ""} ${css}  py-1 h-[70px] px-6 `}
     >
       <div className=" flex justify-between w-full h-full items-center max-w-[1900px]">

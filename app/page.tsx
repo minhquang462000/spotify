@@ -1,5 +1,4 @@
-
-import ListProductHome from "@/components/Lists/HomePage/ListProductHome";;
+import ListProductHome from "@/components/Lists/HomePage/ListProductHome";
 import ListRatingHome from "@/components/Lists/HomePage/ListRatingHome";
 import ListSingerHome from "@/components/Lists/ListSingerHome";
 import FooterChild from "@/components/RenderPageChild/FooterChild";
@@ -11,7 +10,11 @@ export default function Home() {
       <HeaderChild isVisible={0} hidden={true} />
       <div className="flex  flex-col gap-4">
         <div className="bg-gradient-to-t py-2 from-transparent to-[#1f1f1f]">
-          <ListSingerHome titleList="Nghệ sĩ phổ biến" urlLink="" showMore="Hiện tất cả"/>
+          <ListSingerHome
+            titleList="Nghệ sĩ phổ biến"
+            urlLink=""
+            showMore="Hiện tất cả"
+          />
         </div>
         <div className="px-2 flex flex-col  gap-5">
           <ListProductHome
@@ -32,6 +35,7 @@ export default function Home() {
           />
         </div>
       </div>
+
       <FooterChild />
     </main>
   );
