@@ -6,9 +6,12 @@ import { PiDotsThreeBold } from "react-icons/pi";
 import { IoList } from "react-icons/io5";
 import PopupText from "@/components/PopupText";
 
-export interface ICardPlayingAlbumProps {}
+export interface ICardPlayingAlbumProps {
+  isVisible: number;
+}
 
 export default function CardPlayingPage(props: ICardPlayingAlbumProps) {
+  const { isVisible } = props;
   const [isShowFunctionBar, setIsShowFunctionBar] = useState(false);
   const wrapperRef = useRef<any>(null);
   useEffect(() => {
@@ -22,8 +25,13 @@ export default function CardPlayingPage(props: ICardPlayingAlbumProps) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [wrapperRef, setIsShowFunctionBar]);
+
   return (
-    <div className={`flex     my-3  justify-between  items-center `}>
+    <div
+      className={`flex  my-3  justify-between ${
+        isVisible > 10 ? "invisible" : "visible"
+      }   items-center `}
+    >
       <div className="flex gap-8 items-center">
         <button className="bg-[#1fdf64] py-3 shadow-md shadow-[#161616] hover:scale-105 transition-all duration-300   flex justify-center items-center w-14 h-14 rounded-full ">
           <FaPlay size={20} className="place-items-center" color="black" />

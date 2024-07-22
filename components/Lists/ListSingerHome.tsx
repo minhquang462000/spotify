@@ -2,7 +2,6 @@ import Link from "next/link";
 import * as React from "react";
 import CardSingerHome from "../Cards/CardSingerHome";
 
-
 export interface IListSingerHomeProps {
   titleList: string;
   urlLink: string;
@@ -27,7 +26,7 @@ export default function ListSingerHome(props: IListSingerHomeProps) {
           <Link href={urlLink}>{showMore}</Link>
         </p>
       </nav>
-      <div className="w-full px-1  flex gap-y-10 max-h-[280px] overflow-hidden  ">
+      <div className="w-full px-1  grid grid-cols-9 max-h-[280px] overflow-hidden  ">
         <Link href={"artist/1"}>
           {" "}
           <CardSingerHome />

@@ -10,7 +10,7 @@ export default function PageArtist(props: IAppProps) {
   const [isVisible, setIsVisible] = useState(0);
   const scrollRef = useRef<any>(null);
   const toggleVisibility = () => {
-    if (scrollRef.current.scrollTop > 400) {
+    if (scrollRef.current.scrollTop > 300) {
       setIsVisible(20);
     } else if (scrollRef.current.scrollTop > 50) {
       setIsVisible(10);
@@ -26,9 +26,6 @@ export default function PageArtist(props: IAppProps) {
       scrollElement.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
-  useEffect(() => {
-    console.log(isVisible);
-  }, [isVisible]);
 
   return (
     <div

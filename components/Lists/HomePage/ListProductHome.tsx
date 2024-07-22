@@ -25,7 +25,7 @@ export default function ListProductHome(props: IListProductHomeProps) {
           <Link href={urlLink}>{showMore}</Link>
         </p>
       </nav>
-      <div className="w-full px-2 grid grid-cols-7 gap-y-10 max-h-[280px] overflow-hidden  ">
+      <div className="w-full px-2 grid grid-cols-9  max-h-[280px] overflow-hidden  ">
         <CardListHome
           info="Sơn Tùng Mtp"
           title={`mtp M-TP`}

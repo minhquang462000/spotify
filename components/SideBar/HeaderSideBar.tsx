@@ -7,7 +7,7 @@ export interface IHeaderSidebarProps {}
 
 export default function HeaderSidebar(props: IHeaderSidebarProps) {
   return (
-    <header className="bg-[#121212] flex flex-col gap-5 justify-center py-5 overflow-hidden rounded-md px-6  ">
+    <header className="bg-[#121212] flex w-full h-max flex-col gap-5 justify-center py-5 rounded-md px-6  ">
       <div className="">
         <Link href="/">
           <span className={`flex  font-bold items-center gap-2`}>

@@ -10,7 +10,7 @@ export default function ListFamousRelease(props: IListAlbumHomeProps) {
   return (
     <div className="max-w-[1900px]   mt-10">
       <h3 className="text-2xl px-4 mb-3  font-bold">Bản phát hành nổi tiếng</h3>
-      <div className="w-full px-1  flex gap-y-10 max-h-[280px] overflow-hidden  ">
+      <div className="w-full px-1 grid grid-cols-9 max-h-[280px] overflow-hidden  ">
         <CardProductArtistPage
           info="Bản phát hành mới nhất"
           title="Đừng làm trái tim anh đau"

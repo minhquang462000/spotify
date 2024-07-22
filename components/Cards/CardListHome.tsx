@@ -13,7 +13,7 @@ export default function CardListHome({
   info,
 }: ICardAlbumHomeProps) {
   return (
-    <div className="flex flex-col cursor-pointer  w-full  group hover:bg-[#191919] rounded-md  p-2    gap-2">
+    <div className="flex flex-col cursor-pointer max-w-[200px]  w-full  group hover:bg-[#191919] rounded-md  p-2    gap-2">
       <div className="max-w-[180px]  aspect-square mx-auto w-full  relative  ">
         <img
           className="w-full h-full rounded-md object-cover"

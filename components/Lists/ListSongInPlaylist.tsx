@@ -9,7 +9,7 @@ import { FaPlay } from "react-icons/fa";
 
 export interface IListSongInAlbumProps {}
 
-export default function ListSongInAlbum(props: IListSongInAlbumProps) {
+export default function ListSongInPlaylist(props: IListSongInAlbumProps) {
   const [showPlay, setShowPlay] = useState(false);
   const wrapperRef = useRef<any>(null);
   useEffect(() => {
@@ -25,17 +25,18 @@ export default function ListSongInAlbum(props: IListSongInAlbumProps) {
   }, [wrapperRef, setShowPlay]);
   return (
     <div className="text-[#999]">
-      <ul className="flex border-b-[1px] border-[#333]   justify-between px-4 text-xs  items-center font-bold">
-        <li className="flex items-center gap-3">
+      {" "}
+      <nav className="flex border-b-[1px] border-[#333]   justify-between px-4 text-xs py-2 items-center font-bold">
+        <div className="flex items-center gap-3">
           <span className="text-xl text-center w-8"> #</span>
           <span>Tiêu đề</span>
-        </li>
-        <li>
+        </div>
+        <div>
           <span className="px-10 relative group/popup">
             <GoClock size={20} />
           </span>
-        </li>
-      </ul>
+        </div>
+      </nav>
       <ul className="text-sm py-3">
         <li
           ref={wrapperRef}

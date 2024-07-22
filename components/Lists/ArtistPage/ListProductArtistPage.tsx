@@ -30,7 +30,7 @@ export default function ListProductArtistPage(
           <Link href={urlLink}>{showMore}</Link>
         </p>
       </nav>
-      <div className="w-full px-1  flex gap-y-10 max-h-[280px] overflow-hidden  ">
+      <div className="w-full px-1  grid grid-cols-9 max-h-[280px] overflow-hidden  ">
         <CardProductArtistPage
           info="Bản phát hành mới nhất"
           title="Đừng làm trái tim anh đau"

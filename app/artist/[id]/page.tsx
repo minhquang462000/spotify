@@ -2,7 +2,7 @@ import PageArtist from "@/components/Pages/PageArtist";
 
 export default function page() {
   return (
-    <main className="w-full h-full bg-[#121212]  relative   ">
+    <main className="w-full h-full bg-[#121212] rounded-md overflow-hidden  relative   ">
       <div
         style={{
           backgroundImage:

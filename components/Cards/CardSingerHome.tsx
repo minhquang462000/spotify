@@ -6,7 +6,7 @@ export interface ICardSingerHomeProps { }
 export default function CardSingerHome(props: ICardSingerHomeProps) {
   return (
     <div className="flex flex-col cursor-pointer max-w-[200px]  group rounded-md min-h-[260px]  p-3  hover:bg-gradient-to-t from-[#1a1a1a] to-transparent gap-2">
-      <div className="w-[160px] m-auto relative h-[160px]">
+      <div className="max-w-[160px] w-full aspect-square m-auto relative ">
         <img
           className="w-full h-full rounded-full object-cover"
           src="https://media.laodong.vn/storage/newsportal/2019/7/11/743746/Sontungmtp-1-3-03142.jpg?w=720&crop=auto&scale=both"

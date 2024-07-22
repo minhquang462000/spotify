@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import CardSingerDetail from "./CardSingerDetail";
 
-export interface ICardInfoSingerProps { }
+export interface ICardInfoSingerProps {}
 
 export default function CardInfoSinger(props: ICardInfoSingerProps) {
   const [openDetailSinger, setOpenDetailSinger] = useState(false);
@@ -19,8 +19,7 @@ export default function CardInfoSinger(props: ICardInfoSingerProps) {
     };
   }, [wrapperRef, setOpenDetailSinger]);
   return (
-   
-      <div  className =" px-5 w-full">
+    <div className=" px-5 w-full">
       <h4 className="font-bold text-xl py-2">Giới thiệu</h4>
       <div
         onClick={() => setOpenDetailSinger(true)}
@@ -61,8 +60,9 @@ export default function CardInfoSinger(props: ICardInfoSingerProps) {
         </nav>
       </div>
       <div
-        className={`bg-black bg-opacity-70 h-full w-full fixed left-0 z-[888] top-0 ${openDetailSinger ? "block" : "hidden"
-          }`}
+        className={`bg-black bg-opacity-70 h-full w-full fixed left-0 z-[888] top-0 ${
+          openDetailSinger ? "block" : "hidden"
+        }`}
       ></div>
       <div
         ref={wrapperRef}
