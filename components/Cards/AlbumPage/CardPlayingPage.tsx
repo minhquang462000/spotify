@@ -28,7 +28,7 @@ export default function CardPlayingPage(props: ICardPlayingAlbumProps) {
 
   return (
     <div
-      className={`flex  my-3  justify-between ${
+      className={`flex  my-3 px-5  justify-between ${
         isVisible > 10 ? "invisible" : "visible"
       }   items-center `}
     >

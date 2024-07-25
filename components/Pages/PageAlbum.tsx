@@ -35,7 +35,7 @@ export default function PageAlbum(props: IPageAlbumProps) {
       ref={scrollRef}
       className="w-full h-full absolute top-0 right-0 body-childHome overflow-y-scroll z-20"
     >
-      <HeaderChild isVisible={isVisible} hidden={true} />
+      <HeaderChild isVisible={isVisible} />
       <div className="px-5 py-10 bg-gradient-to-t pb-1 from-[#031e12] to-[#003820] flex gap-5 w-full">
         <img
           className="w-[200px] h-[200px] py-2 object-cover"

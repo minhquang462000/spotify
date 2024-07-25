@@ -58,24 +58,26 @@ export default function CardSongSingerPage(props: ICardSongSingerPageProps) {
           <p className="hover:underline  text-lg">Đừng làm trái tim anh đau</p>
         </Link>
         <p className="justify-self-end">15.502.403</p>
-        <ul className="flex gap-5 justify-end justify-self-end items-center">
-          <li
-            className={`mr-5 relative group/popup cursor-pointer hover:text-white ${
-              showPlay ? "visible" : " group-hover:visible  invisible"
-            }`}
-          >
-            <CiHeart size={25} />
-            <PopupText content="Lưu vào thư viện" />
-          </li>
-          <li>4.39</li>
-          <li
-            className={`cursor-pointer ${
+        <ul className="flex w-[150px]  gap-6 justify-center justify-self-end items-center">
+        <li
+          className={` relative group/popup cursor-pointer hover:text-white ${
+            showPlay ? "visible" : " group-hover:visible  invisible"
+          }`}
+        >
+          <CiHeart className="" size={25} />
+          <PopupText content="Lưu vào thư viện" />
+        </li>
+        <li className="flex gap-4">
+          <span>4.39</span>
+          <span
+            className={`cursor-pointer relative ${
               showPlay ? "visible" : " group-hover:visible  invisible"
             }`}
           >
             <PiDotsThreeBold size={25} />
-          </li>
-        </ul>
+          </span>
+        </li>
+      </ul>
       </div>
     </div>
   );

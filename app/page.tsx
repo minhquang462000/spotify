@@ -7,7 +7,7 @@ const arrRender = [{ urlImag: "", titleCard: "", urlLink: "", info: "" }];
 export default function Home() {
   return (
     <main className="w-full  h-full overflow-y-scroll  body-childHome overflow-hidden bg-[#121212]  relative box-border rounded-md ">
-      <HeaderChild isVisible={0} hidden={true} />
+      <HeaderChild isVisible={0}  />
       <div className="flex  flex-col gap-4">
         <div className="bg-gradient-to-t py-2 from-transparent to-[#1f1f1f]">
           <ListSingerHome

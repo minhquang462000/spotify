@@ -1,99 +1,58 @@
-"use client";
-import { CiHeart } from "react-icons/ci";
 import { GoClock } from "react-icons/go";
-import PopupText from "../PopupText";
-import { PiDotsThreeBold } from "react-icons/pi";
-import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { FaPlay } from "react-icons/fa";
+import CardListSongOnPage from "../Cards/CardListSongOnPage";
 
-export interface IListSongInAlbumProps {}
+export interface IListSongInAlbumProps {
+  scrollToTop: number;
+}
 
 export default function ListSongInPlaylist(props: IListSongInAlbumProps) {
-  const [showPlay, setShowPlay] = useState(false);
-  const wrapperRef = useRef<any>(null);
-  useEffect(() => {
-    function handleClickOutside(event: any) {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        setShowPlay(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [wrapperRef, setShowPlay]);
+  const { scrollToTop } = props;
   return (
-    <div className="text-[#999]">
+    <div className="text-[#b3b3b3]">
       {" "}
-      <nav className="flex border-b-[1px] border-[#333]   justify-between px-4 text-xs py-2 items-center font-bold">
-        <div className="flex items-center gap-3">
-          <span className="text-xl text-center w-8"> #</span>
-          <span>Tiêu đề</span>
-        </div>
-        <div>
-          <span className="px-10 relative group/popup">
-            <GoClock size={20} />
-          </span>
-        </div>
+      <nav
+        className={`flex border-b-[1px] ${
+          scrollToTop > 10
+            ? "bg-[#1f1f1f] shadow shadow-[#333] px-5 mx-0"
+            : "mx-4 px-1"
+        } w-full border-[#ffffff1a]  sticky top-[59px] z-[999]  justify-between  text-xs py-2  items-center font-bold`}
+      >
+        <ul className="w-full flex px-2  justify-between items-center">
+          <li className="flex items-center w-[40%]  gap-3">
+            <span className="text-sm text-center w-8 h-max"> #</span>
+            <span>Tiêu đề</span>
+          </li>
+          <li className="flex items-center  w-[45%]">
+            <p className="w-1/2">Album</p>
+            <p className="w-1/2">Ngày thêm</p>
+          </li>
+          <li className="w-[150px] flex justify-center relative  group/popup">
+            <GoClock size={18} />
+          </li>
+        </ul>
       </nav>
-      <ul className="text-sm py-3">
-        <li
-          ref={wrapperRef}
-          onClick={() => setShowPlay(true)}
-          className={`flex px-4 group hover:bg-[#2b2b28] py-2 rounded-md  ${
-            showPlay && "bg-[#5b5b59] hover:bg-[#5b5b59] hover:bg-opacity-50"
-          } items-center font-bold justify-between`}
-        >
-          <div className="flex  items-center gap-3">
-            <div className="relative w-8 group/popup">
-              <button
-                className={`w-8 h-full flex items-center justify-center ${
-                  showPlay ? "block" : " group-hover:block  hidden"
-                }`}
-              >
-                <FaPlay className="m-auto" size={17} />
-              </button>
-              <p
-                className={`w-8 h-full  text-center font-serif text-2xl font-light ${
-                  showPlay ? "hidden" : "block group-hover:hidden"
-                }`}
-              >
-                1
-              </p>
-              <PopupText content="Phát Đừng làm trái tim anh đau của Sơn Tùng M-TP" />
-            </div>
-            <span className="flex flex-col">
-              <p className="text-white hover:underline">
-                <Link href="">Please Dont't Change(Remix)</Link>
-              </p>
-              <ul className="flex">
-                <li className="hover:underline hover:text-white">
-                  <Link href={""}>Jung kook</Link>
-                </li>
-              </ul>
-            </span>
-          </div>
-          <ul className="flex gap-5 justify-end justify-self-end items-center">
-            <li
-              className={` relative group/popup cursor-pointer hover:text-white ${
-                showPlay ? "visible" : " group-hover:visible  invisible"
-              }`}
-            >
-              <CiHeart size={25} />
-              <PopupText content="Lưu vào thư viện" />
-            </li>
-            <li>4.39</li>
-            <li
-              className={`cursor-pointer relative ${
-                showPlay ? "visible" : " group-hover:visible  invisible"
-              }`}
-            >
-              <PiDotsThreeBold size={25} />
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <div className="text-sm w-full px-4 py-3">
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+        <CardListSongOnPage showAlbum={true} />
+      </div>
     </div>
   );
 }

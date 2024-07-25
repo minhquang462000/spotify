@@ -7,10 +7,9 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export interface IHeaderChildProps {
   isVisible: number;
-  hidden: boolean;
 }
 
-export default function HeaderChild({ isVisible, hidden }: IHeaderChildProps) {
+export default function HeaderChild({ isVisible }: IHeaderChildProps) {
   const router = useRouter();
   const [css, setCss] = useState("");
   useEffect(() => {
@@ -19,13 +18,13 @@ export default function HeaderChild({ isVisible, hidden }: IHeaderChildProps) {
     } else if (isVisible > 0) {
       setCss("bg-opacity-30");
     } else {
-      setCss("bg-opacity-0");
+      setCss("bg-opacity-0 ");
     }
   }, [isVisible]);
   return (
     <header
       className={` w-full   bg-[#121212]   sticky top-0  z-[999] 
-      ${hidden ? "bg-opacity-50  " : ""} ${css}  h-[60px] px-6 `}
+     ${css}  h-[60px] px-6 `}
     >
       <div className=" flex justify-between w-full h-full items-center max-w-[1900px]">
         <div className="flex gap-4 items-center">

@@ -6,6 +6,7 @@ import { PiDotsThreeBold } from "react-icons/pi";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FaPlay } from "react-icons/fa";
+import CardListSongOnPage from "../Cards/CardListSongOnPage";
 
 export interface IListSongInAlbumProps {}
 
@@ -24,75 +25,19 @@ export default function ListSongInAlbum(props: IListSongInAlbumProps) {
     };
   }, [wrapperRef, setShowPlay]);
   return (
-    <div className="text-[#999]">
-      <ul className="flex border-b-[1px] border-[#333]   justify-between px-4 text-xs  items-center font-bold">
+    <div className="text-[#b3b3b3]">
+      <ul className="flex border-b-[1px] border-[#ffffff1a] w-full pb-1   justify-between px-4 text-xs pt-2 items-center font-bold">
         <li className="flex items-center gap-3">
           <span className="text-xl text-center w-8"> #</span>
           <span>Tiêu đề</span>
         </li>
-        <li>
-          <span className="px-10 relative group/popup">
-            <GoClock size={20} />
-          </span>
+        <li className="w-[100px]  flex justify-center relative  group/popup">
+          <GoClock size={18} />
         </li>
       </ul>
-      <ul className="text-sm py-3">
-        <li
-          ref={wrapperRef}
-          onClick={() => setShowPlay(true)}
-          className={`flex px-4 group hover:bg-[#2b2b28] py-2 rounded-md  ${
-            showPlay && "bg-[#5b5b59] hover:bg-[#5b5b59] hover:bg-opacity-50"
-          } items-center font-bold justify-between`}
-        >
-          <div className="flex  items-center gap-3">
-            <div className="relative w-8 group/popup">
-              <button
-                className={`w-8 h-full flex items-center justify-center ${
-                  showPlay ? "block" : " group-hover:block  hidden"
-                }`}
-              >
-                <FaPlay className="m-auto" size={17} />
-              </button>
-              <p
-                className={`w-8 h-full  text-center font-serif text-2xl font-light ${
-                  showPlay ? "hidden" : "block group-hover:hidden"
-                }`}
-              >
-                1
-              </p>
-              <PopupText content="Phát Đừng làm trái tim anh đau của Sơn Tùng M-TP" />
-            </div>
-            <span className="flex flex-col">
-              <p className="text-white hover:underline">
-                <Link href="">Please Dont't Change(Remix)</Link>
-              </p>
-              <ul className="flex">
-                <li className="hover:underline hover:text-white">
-                  <Link href={""}>Jung kook</Link>
-                </li>
-              </ul>
-            </span>
-          </div>
-          <ul className="flex gap-5 justify-end justify-self-end items-center">
-            <li
-              className={` relative group/popup cursor-pointer hover:text-white ${
-                showPlay ? "visible" : " group-hover:visible  invisible"
-              }`}
-            >
-              <CiHeart size={25} />
-              <PopupText content="Lưu vào thư viện" />
-            </li>
-            <li>4.39</li>
-            <li
-              className={`cursor-pointer relative ${
-                showPlay ? "visible" : " group-hover:visible  invisible"
-              }`}
-            >
-              <PiDotsThreeBold size={25} />
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <div className="text-sm py-3">
+        <CardListSongOnPage  showAlbum={false} />
+      </div>
     </div>
   );
 }
