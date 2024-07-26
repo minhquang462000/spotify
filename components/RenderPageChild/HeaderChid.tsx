@@ -10,6 +10,7 @@ export interface IHeaderChildProps {
 }
 
 export default function HeaderChild({ isVisible }: IHeaderChildProps) {
+  const pathName = usePathname();
   const router = useRouter();
   const [css, setCss] = useState("");
   useEffect(() => {
@@ -17,7 +18,7 @@ export default function HeaderChild({ isVisible }: IHeaderChildProps) {
       setCss("bg-opacity-100");
     } else if (isVisible > 0) {
       setCss("bg-opacity-30");
-    } else {
+    } else if (isVisible == 0) {
       setCss("bg-opacity-0 ");
     }
   }, [isVisible]);
