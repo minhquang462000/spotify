@@ -89,20 +89,20 @@ export default function page(props: IpageProps) {
               Đăng nhập
             </button>
             <p className="text-center underline font-medium hover:text-[#1ed760]">
-              <Link href="/auth/">Quên mật khẩu cảu bạn</Link>
+              <Link href="/auth/forgot-pass">Quên mật khẩu cảu bạn</Link>
             </p>
           </div>
         </div>
-        <p>
+        <span className="h-[150px] flex justify-center items-center gap-3">
           Bạn chưa có tài khoản?{" "}
-          <p>
+          <p className="underline font-medium text-base hover:text-[#1ed760]">
             {" "}
-            <Link href={"/register"}>Đăng ký Spotify</Link>
+            <Link href={"/auth/register"}>Đăng ký Spotify</Link>
           </p>
-        </p>
+        </span>
       </div>
 
-      <footer className="bg-[#121212] mt-[40px] font-medium text-xs  w-full text-center py-8 text-[#a7a7a7]">
+      <footer className="bg-[#121212] fixed bottom-0 left-0 mt-[40px] font-medium text-xs  w-full text-center py-8 text-[#a7a7a7]">
         Trang web này được bảo vệ bằng reCAPTCHA và tuân theo{" "}
         <span className="underline">Chính sách quyền riêng tư</span> cũng như{" "}
         <span className="underline">Điều khoản dịch vụ </span>của Google.

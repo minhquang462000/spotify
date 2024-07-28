@@ -6,7 +6,7 @@ export interface IInfoFoterChildProps {
 
 export default function InfoFooterChild(props: IInfoFoterChildProps) {
     return (
-        <nav className="w-full flex fixed bottom-0 justify-between   h-14 items-center p-3 text-sm col-span-5 bg-gradient-to-r from-[#af2896] to-[#509bf5]">
+        <nav className="w-full flex fixed bottom-2 justify-between z-[889]  h-14 items-center p-3 text-sm col-span-5 bg-gradient-to-r from-[#af2896] to-[#509bf5]">
             <div>
                 <Link href="">
                     <p className="font-bold text-xs mb-1">Xem trước  Spotify</p>

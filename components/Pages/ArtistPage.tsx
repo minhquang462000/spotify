@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 export interface IAppProps {}
 
-export default function PageArtist(props: IAppProps) {
+export default function ArtistPage(props: IAppProps) {
   const [isVisible, setIsVisible] = useState(0);
   const scrollRef = useRef<any>(null);
   const toggleVisibility = () => {

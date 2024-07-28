@@ -7,9 +7,9 @@ import { useEffect, useRef, useState } from "react";
 import iconSpotify from "@/public/images/icon.jpg";
 import ListSongInPlaylist from "../Lists/ListSongInPlaylist";
 
-export interface IPagePlayListProps {}
+export interface IPlaylistPageProps {}
 
-export default function PagePlayList(props: IPagePlayListProps) {
+export default function PlaylistPage(props: IPlaylistPageProps) {
   const [isVisible, setIsVisible] = useState(0);
   const scrollRef = useRef<any>(null);
   const toggleVisibility = () => {

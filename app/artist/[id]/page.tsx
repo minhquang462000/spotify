@@ -1,4 +1,4 @@
-import PageArtist from "@/components/Pages/PageArtist";
+import ArtistPage from "@/components/Pages/ArtistPage";
 import { MainLayout } from "@/layouts";
 
 export default function page() {
@@ -15,7 +15,7 @@ export default function page() {
           }}
           className=" bg-no-repeat absolute w-full min-h-[450px] max-h-[40vh] z-10 left-0 top-0   rounded-md  bg-cover   bg-center    overflow-hidden"
         ></div>
-        <PageArtist />
+       <ArtistPage />
       </main>
     </MainLayout>
   );

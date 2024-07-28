@@ -1,30 +1,23 @@
 "use client";
+
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { FaPlay } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { FaPlay, FaRegBell } from "react-icons/fa";
+import { FaArrowDownLong } from "react-icons/fa6";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-export interface IHeaderChildProps {
-  isVisible: number;
+export interface IHeaderTrackProps {
+  visible: number;
 }
 
-export default function HeaderChild({ isVisible }: IHeaderChildProps) {
+export default function HeaderTrack(props: IHeaderTrackProps) {
+  const { visible } = props;
   const router = useRouter();
-  const [css, setCss] = useState("");
-  useEffect(() => {
-    if (isVisible > 10) {
-      setCss("bg-opacity-100");
-    } else if (isVisible > 0) {
-      setCss("bg-opacity-30");
-    } else if (isVisible == 0) {
-      setCss("bg-opacity-0 ");
-    }
-  }, [isVisible]);
   return (
     <header
       className={` w-full   bg-[#121212]   sticky top-0  z-[999] 
-     ${css}  h-[60px] px-6 `}
+     h-[60px] px-6 `}
     >
       <div className=" flex justify-between w-full h-full items-center max-w-[1900px]">
         <div className="flex gap-4 items-center">
@@ -44,7 +37,7 @@ export default function HeaderChild({ isVisible }: IHeaderChildProps) {
           </div>
           <div
             className={`flex items-center gap-3 ${
-              isVisible > 10 ? "" : "hidden"
+              visible > 10 ? "" : "hidden"
             }`}
           >
             <button className="bg-[#1fdf64] shadow-md shadow-[#333] hover:scale-105 transition-all duration-300   flex justify-center items-center w-10 h-10 rounded-full ">
@@ -53,15 +46,26 @@ export default function HeaderChild({ isVisible }: IHeaderChildProps) {
             <p className="text-2xl font-semibold">Sơn Tùng M-TP</p>
           </div>
         </div>
-        <div className="flex gap-4 font-bold">
-          <Link href={"/auth/register"}>
-            <button className="py-3 px-6 hover:scale-105 hover:text-white text-[#9a9a9a]">
-              Đăng ký
+        <div className="flex gap-5 items-center text-sm font-bold">
+          <Link href={""}>
+            <button className="text-black bg-white rounded-full hover:scale-105 px-4 py-2">
+              Khám phá Premium
             </button>
           </Link>
-          <Link href={"/auth/login"}>
-            <button className="py-2 px-6 bg-white hover:scale-105 rounded-full text-black">
-              Đăng nhập
+          <Link href={""}>
+            <button className="flex hover:scale-105 items-center gap-2">
+              <span className="border-white border rounded-full p-1 flex justify-center items-center">
+                <FaArrowDownLong size={12} />
+              </span>
+              Cài đặt Ứng dụng
+            </button>
+          </Link>
+          <Link href={""}>
+            <FaRegBell className="text-[#999] hover:scale-105 hover:text-white" size={20} />
+          </Link>
+          <Link href={""}>
+            <button className="bg-[#fb6336] text-black rounded-full hover:scale-105 h-7 w-7 flex justify-center items-center">
+              M
             </button>
           </Link>
         </div>

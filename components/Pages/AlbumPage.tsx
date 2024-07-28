@@ -8,9 +8,9 @@ import ListProductHome from "../Lists/HomePage/ListProductHome";
 import FooterChild from "../RenderPageChild/FooterChild";
 import { useEffect, useRef, useState } from "react";
 
-export interface IPageAlbumProps {}
+export interface IAlbumPageProps {}
 
-export default function PageAlbum(props: IPageAlbumProps) {
+export default function AlbumPage(props: IAlbumPageProps) {
   const [isVisible, setIsVisible] = useState(0);
   const scrollRef = useRef<any>(null);
   const toggleVisibility = () => {

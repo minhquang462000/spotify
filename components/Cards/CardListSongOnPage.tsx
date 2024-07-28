@@ -7,11 +7,13 @@ import { CiHeart } from "react-icons/ci";
 import { PiDotsThreeBold } from "react-icons/pi";
 
 export interface ICardListSongOnPageProps {
-  showAlbum: boolean;
+  showAlbum?: boolean;
+  showView?: boolean;
+  trackPage?: boolean;
 }
 
 export default function CardListSongOnPage(props: ICardListSongOnPageProps) {
-  const { showAlbum } = props;
+  const { showAlbum, trackPage, showView } = props;
   const [showPlay, setShowPlay] = useState(false);
   const wrapperRef = useRef<any>(null);
   useEffect(() => {
@@ -34,7 +36,7 @@ export default function CardListSongOnPage(props: ICardListSongOnPageProps) {
       } items-center font-bold justify-between`}
     >
       <div className="flex w-[40%]  items-center gap-3">
-        <div className="relative w-8 group/popup">
+        <div className={`relative w-8 group/popup ${trackPage && "hidden"}`}>
           <button
             className={`w-8 h-full flex items-center justify-center ${
               showPlay ? "block" : " group-hover:block  hidden"
@@ -51,6 +53,11 @@ export default function CardListSongOnPage(props: ICardListSongOnPageProps) {
           </p>
           <PopupText content="Phát Đừng làm trái tim anh đau của Sơn Tùng M-TP" />
         </div>
+        <img
+          className="w-[45px] h-[45px] object-cover rounded-md"
+          src="https://i.scdn.co/image/ab6761610000f178c7c8ae4ffa1d7f3bfd4aadfa"
+          alt=""
+        />
         <span className="flex w-full flex-col">
           <p className="text-white w-3/4 overflow-hidden truncate hover:underline">
             <Link href="">Please Dont't Change(Remix) </Link>
@@ -62,15 +69,15 @@ export default function CardListSongOnPage(props: ICardListSongOnPageProps) {
           </ul>
         </span>
       </div>
-      <div
-        className={`w-[45%] flex text-start items-center text-sm ${
-          !showAlbum && "hidden"
-        }`}
-      >
-        <p className="hover:underline w-full overflow-hidden truncate ">
+      <div className={`w-[45%] flex text-start items-center text-sm`}>
+        <p
+          className={`hover:underline w-full overflow-hidden  ${
+            !showAlbum && "hidden"
+          } truncate`}
+        >
           <Link href={""}>ANh TRAI SAY HAI ,Tập 5 </Link>
         </p>
-        <span></span>
+        <span className={`text-[#a7a7a7] text-center w-full ${!showView && "hidden"}`} >4.385.494</span>
       </div>
       <ul className="flex w-[100px]  gap-4 justify-center justify-self-end items-center">
         <li
