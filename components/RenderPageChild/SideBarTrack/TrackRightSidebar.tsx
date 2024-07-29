@@ -14,22 +14,24 @@ export interface ITrackRightSidebarProps {}
 
 export default function TrackRightSidebar(props: ITrackRightSidebarProps) {
   return (
-    <div className="w-full bg-[#121212]  rounded-md sticky z-[888] top-0 px-3  flex flex-col  h-full ">
+    <div className="w-full bg-[#121212] pb-2  rounded-md sticky z-[888] top-0 px-3  flex flex-col  h-full ">
       <HeaderRightSidebar />
-      <div className="w-full   body-childHome flex flex-col gap-5">
+      <div className="w-full overflow-y-scroll  body-childHome flex flex-col gap-5">
         <img
           className="w-full aspect-square  object-cover"
           src="https://i.scdn.co/image/ab67616d00001e02e88e2e6c94ec9e1c0ab4d122"
           alt=""
         />
         <div className="flex justify-between items-center">
-          <span>
-            <p className="hover:underline font-bold text-2xl">
+          <span className="w-3/4">
+            <p className="hover:underline w-full overflow-hidden truncate font-bold text-2xl">
               <Link href="#">Đau Để Trưởng Thành</Link>
             </p>
-            <p className="hover:underline font-bold text-[#a7a7a7]">
-              <Link href="#">Only C</Link>
-            </p>
+            <ul className="flex w-full font-bold text-[#a7a7a7] overflow-hidden">
+              <li className="hover:underline ">
+                <Link href="#">Only C</Link>
+              </li>
+            </ul>
           </span>
           <button>
             {" "}

@@ -5,12 +5,13 @@ import HeaderTrack from "../RenderPageChild/HeaderTrack";
 
 export interface ITrackPageProps {}
 import Link from "next/link";
-import CardPlayingTrackPage from "../Cards/CardPlayingTrackPage";
 import CardListSongOnPage from "../Cards/CardListSongOnPage";
-import CardSongSingerPage from "../Cards/SingerPage/CardSongSingerPage";
 import FooterChild from "../RenderPageChild/FooterChild";
+import CardPlayingTrackPage from "../Cards/Track/CardPlayingTrackPage";
+import PlayMusicSideBarTrack from "../Cards/Track/PlayMusicSideBarTrack";
 export default function TrackPage(props: ITrackPageProps) {
   const [isVisible, setIsVisible] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const scrollRef = useRef<any>(null);
   const toggleVisibility = () => {
@@ -78,7 +79,7 @@ export default function TrackPage(props: ITrackPageProps) {
         </div>
         <div className="w-full flex flex-col gap-8 max-w-[1900px]">
           <div className="w-full">
-            <CardPlayingTrackPage visible={isVisible} />
+            <CardPlayingTrackPage isPlaying={isPlaying} setIsPlaying={setIsPlaying} visible={isVisible} />
             <div className="px-3">
               <Link href={""}>
                 <div className="p-3  rounded-md flex hover:bg-[#313231] items-center gap-4">
@@ -124,6 +125,7 @@ export default function TrackPage(props: ITrackPageProps) {
         </div>
         <FooterChild />
       </div>
+      <PlayMusicSideBarTrack  isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>
     </section>
   );
 }

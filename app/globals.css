@@ -5,3 +5,14 @@
 .body-childHome::-webkit-scrollbar {
   width: 0px;
 }
+.slider-thumb-audio::-webkit-slider-thumb {
+  visibility: hidden;
+  cursor: pointer;
+}
+
+
+
+/* Hiện thumb khi hover */
+.slider-thumb-audio:hover::-webkit-slider-thumb {
+  visibility: visible;
+}

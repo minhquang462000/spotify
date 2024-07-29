@@ -1,11 +1,14 @@
-import { FaPlay, FaPlus, FaRegHeart } from "react-icons/fa";
-import PopupText from "../PopupText";
+"use client";
+import { FaPause, FaPlay, FaPlus, FaRegHeart } from "react-icons/fa";
 import { PiDotsThreeBold } from "react-icons/pi";
 import { useEffect, useRef, useState } from "react";
-import FunctionBarTrackPage from "../Lists/FunctionBarTrackPage";
+import PopupText from "@/components/PopupText";
+import FunctionBarTrackPage from "@/components/Lists/FunctionBarTrackPage";
 
 export interface ICardPlayingTrackPageProps {
   visible: number;
+  isPlaying: boolean;
+  setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function CardPlayingTrackPage(
@@ -24,7 +27,7 @@ export default function CardPlayingTrackPage(
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [wrapperRef, setIsShowFunctionBar]);
-  const { visible } = props;
+  const { visible, isPlaying, setIsPlaying } = props;
 
   return (
     <div
@@ -33,8 +36,11 @@ export default function CardPlayingTrackPage(
       }   items-center `}
     >
       <div className="flex gap-8 items-center">
-        <button className="bg-[#1fdf64]  shadow-md shadow-[#161616] hover:scale-105 transition-all duration-300   flex justify-center items-center w-14 h-14 rounded-full ">
-          <FaPlay size={20} className="place-items-center" color="black" />
+        <button
+          onClick={() => setIsPlaying(!isPlaying)}
+          className="bg-[#1fdf64]  shadow-md shadow-[#161616] text-black hover:scale-105 transition-all duration-300   flex justify-center items-center w-14 h-14 rounded-full "
+        >
+         {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} />}
         </button>
         <button className="text-[#999]  border-4 border-[#999] hover:border-white w-8 h-8 flex justify-center items-center  rounded-full relative group/popup hover:text-white">
           <FaPlus size={20} />
