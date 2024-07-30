@@ -87,7 +87,7 @@ const getOne = async (req, res) => {
 };
 const getList = async (req, res) => {
   try {
-    const { _start, _end, singer, category, name,albums } = req.query;
+    const { _start, _end, singer, category, name, albums } = req.query;
     const start = parseInt(_start) || 0;
     const end = parseInt(_end) || 10;
     const { docs, totalDoc } = await SongService.getList({
@@ -96,7 +96,7 @@ const getList = async (req, res) => {
       albums,
       start,
       end,
-      name
+      name,
     });
     res.header("X-Total-Count", totalDoc);
     res.header("Access-Control-Expose-Headers", "X-Total-Count");
