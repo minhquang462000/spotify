@@ -1,10 +1,12 @@
+
+import BackgroundPageByImage from "@/components/Cards/BackgroundPageByImage";
 import AlbumPage from "@/components/Pages/AlbumPage";
 import { MainLayout } from "@/layouts";
 export default function page() {
   return (
     <MainLayout>
       <main className="bg-[#121212] w-full  h-full rounded-md  overflow-hidden   relative">
-        <div className="absolute w-full top-0 z-10 bg-gradient-to-b from-[#003820] to-transparent h-[500px]" />
+        <BackgroundPageByImage imageUrl="https://i.scdn.co/image/ab67616d00001e02741fd4807f442af3f7359316" height="500" />
         <AlbumPage />
       </main>
     </MainLayout>
