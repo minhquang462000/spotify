@@ -3,20 +3,24 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FaPlay, FaRegBell } from "react-icons/fa";
+import { FaPause, FaPlay, FaRegBell } from "react-icons/fa";
 import { FaArrowDownLong } from "react-icons/fa6";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export interface IHeaderTrackProps {
   visible: number;
+  color?: string;
+  isPlaying?: boolean;
+  setIsPlaying: (isPlaying: boolean) => void;
 }
 
 export default function HeaderTrack(props: IHeaderTrackProps) {
-  const { visible } = props;
+  const { visible, color, isPlaying, setIsPlaying } = props;
   const router = useRouter();
   return (
     <header
-      className={` w-full   bg-[#121212]   sticky top-0  z-[999] 
+      style={{ backgroundColor: visible > 0 ? color || "#121212" : "#12121270" }}
+      className={` w-full     sticky top-0  z-[999] 
      h-[60px] px-6 `}
     >
       <div className=" flex justify-between w-full h-full items-center max-w-[1900px]">
@@ -36,12 +40,14 @@ export default function HeaderTrack(props: IHeaderTrackProps) {
             </button>
           </div>
           <div
-            className={`flex items-center gap-3 ${
-              visible > 10 ? "" : "hidden"
-            }`}
+            className={`flex items-center gap-3 ${visible > 10 ? "" : "hidden"
+              }`}
           >
-            <button className="bg-[#1fdf64] shadow-md shadow-[#333] hover:scale-105 transition-all duration-300   flex justify-center items-center w-10 h-10 rounded-full ">
-              <FaPlay size={18} className="place-items-center" color="black" />
+            <button
+              onClick={() => setIsPlaying(!isPlaying)}
+              className="bg-[#1fdf64]  shadow-md shadow-[#161616] text-black hover:scale-105 transition-all duration-300   flex justify-center items-center w-10 h-10 rounded-full "
+            >
+              {isPlaying ? <FaPause size={18} /> : <FaPlay size={18} />}
             </button>
             <p className="text-2xl font-semibold">Sơn Tùng M-TP</p>
           </div>

@@ -8,7 +8,7 @@ export function MainLayout({ children }: Readonly<ILayout>) {
       style={{ paddingBottom: "74px" }}
       className=" w-full gap-2 relative h-screen p-2   flex text-white "
     >
-      <div className="max-w-[350px]  h-full relative">
+      <div className="w-[350px]  h-full relative">
         <MainSidebar />
       </div>
       <div className="w-full    h-full ">{children}</div>

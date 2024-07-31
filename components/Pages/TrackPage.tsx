@@ -3,16 +3,21 @@
 import { useEffect, useRef, useState } from "react";
 import HeaderTrack from "../RenderPageChild/HeaderTrack";
 
-export interface ITrackPageProps {}
+export interface ITrackPageProps { }
 import Link from "next/link";
 import CardListSongOnPage from "../Cards/CardListSongOnPage";
 import FooterChild from "../RenderPageChild/FooterChild";
 import CardPlayingTrackPage from "../Cards/Track/CardPlayingTrackPage";
 import PlayMusicSideBarTrack from "../Cards/Track/PlayMusicSideBarTrack";
+import BackgroundPageByImage from "../Cards/BackgroundPageByImage";
+import { lightenHex } from "@/hepper";
 export default function TrackPage(props: ITrackPageProps) {
   const [isVisible, setIsVisible] = useState(0);
+  const [color, setColor] = useState("#121212");
   const [isPlaying, setIsPlaying] = useState(false);
   const [showMore, setShowMore] = useState(false);
+  let darkColor = lightenHex(color, 20);
+  let bgHeader = lightenHex(color, 60);
   const scrollRef = useRef<any>(null);
   const toggleVisibility = () => {
     if (scrollRef.current.scrollTop > 300) {
@@ -33,14 +38,17 @@ export default function TrackPage(props: ITrackPageProps) {
   }, []);
   return (
     <section className="w-full h-full bg-[#121212] rounded-md overflow-hidden  relative   ">
-      <div className="absolute w-full top-0 z-10 bg-gradient-to-b from-[#727a72] to-transparent h-[600px]" />
       <div
         ref={scrollRef}
         className="w-full h-full absolute   top-0 right-0 body-childHome overflow-y-scroll z-20"
       >
-        <HeaderTrack visible={isVisible} />
-        <div className="px-5 pt-[120px] bg-gradient-to-t pb-4 from-[#41414169] shadow to-[#727a72] items-end flex gap-5 w-full">
-          <div className="max-w-[180px] shadow-[#4d3024] shadow-lg aspect-square rounded-2xl overflow-hidden">
+        <BackgroundPageByImage color={color} setColor={setColor} imageUrl="https://i.scdn.co/image/ab67616d00001e02e88e2e6c94ec9e1c0ab4d122" />
+        <HeaderTrack isPlaying={isPlaying} setIsPlaying={setIsPlaying} color={bgHeader} visible={isVisible} />
+        <div style={{
+          backgroundImage: `linear-gradient(0deg, transparent 0%, ${darkColor}  100%)`,
+
+        }} className={`p-5 pt-10  flex gap-5 w-full shadow-lg shadow-[${darkColor}]`}>
+          <div className={`max-w-[180px] shadow-[${darkColor}] shadow-lg aspect-square rounded-2xl overflow-hidden`}>
             <img
               className="w-full aspect-square  object-cover"
               src="https://i.scdn.co/image/ab67616d00001e02e88e2e6c94ec9e1c0ab4d122"
@@ -125,7 +133,7 @@ export default function TrackPage(props: ITrackPageProps) {
         </div>
         <FooterChild />
       </div>
-      <PlayMusicSideBarTrack  isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>
+      <PlayMusicSideBarTrack isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
     </section>
   );
 }

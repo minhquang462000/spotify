@@ -7,26 +7,19 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export interface IHeaderChildProps {
   isVisible: number;
+  color?: string;
 }
 
-export default function HeaderChild({ isVisible }: IHeaderChildProps) {
+export default function HeaderChild({ isVisible, color }: IHeaderChildProps) {
   const router = useRouter();
-  const [css, setCss] = useState("");
-  useEffect(() => {
-    if (isVisible > 10) {
-      setCss("bg-opacity-100");
-    } else if (isVisible > 0) {
-      setCss("bg-opacity-30");
-    } else if (isVisible == 0) {
-      setCss("bg-opacity-0 ");
-    }
-  }, [isVisible]);
+
   return (
     <header
-      className={` w-full   bg-[#121212]   sticky top-0  z-[999] 
-     ${css}  h-[60px] px-6 `}
+      style={{ backgroundColor: isVisible > 0 ? color : "#12121270" }}
+      className={` w-full     sticky top-0  z-[999] 
+     h-[60px] px-6 `}
     >
-      <div className=" flex justify-between w-full h-full items-center max-w-[1900px]">
+      <div className=" flex justify-between w-full h-full  items-center max-w-[1900px]">
         <div className="flex gap-4 items-center">
           <div className="flex gap-3">
             <button
@@ -43,9 +36,8 @@ export default function HeaderChild({ isVisible }: IHeaderChildProps) {
             </button>
           </div>
           <div
-            className={`flex items-center gap-3 ${
-              isVisible > 10 ? "" : "hidden"
-            }`}
+            className={`flex items-center gap-3 ${isVisible > 10 ? "" : "hidden"
+              }`}
           >
             <button className="bg-[#1fdf64] shadow-md shadow-[#333] hover:scale-105 transition-all duration-300   flex justify-center items-center w-10 h-10 rounded-full ">
               <FaPlay size={18} className="place-items-center" color="black" />

@@ -6,10 +6,13 @@ import FooterChild from "../RenderPageChild/FooterChild";
 import { useEffect, useRef, useState } from "react";
 import iconSpotify from "@/public/images/icon.jpg";
 import ListSongInPlaylist from "../Lists/ListSongInPlaylist";
+import BackgroundPageByImage from "../Cards/BackgroundPageByImage";
+import { lightenHex } from "@/hepper";
 
-export interface IPlaylistPageProps {}
+export interface IPlaylistPageProps { }
 
 export default function PlaylistPage(props: IPlaylistPageProps) {
+  const [color, setColor] = useState("#121212");
   const [isVisible, setIsVisible] = useState(0);
   const scrollRef = useRef<any>(null);
   const toggleVisibility = () => {
@@ -21,6 +24,9 @@ export default function PlaylistPage(props: IPlaylistPageProps) {
       setIsVisible(0);
     }
   };
+  let darkColor = lightenHex(color, 20);
+  let bgHeader = lightenHex(color,60);
+
   useEffect(() => {
     const scrollElement = scrollRef.current;
     scrollElement.addEventListener("scroll", toggleVisibility);
@@ -30,12 +36,16 @@ export default function PlaylistPage(props: IPlaylistPageProps) {
     };
   }, []);
   return (
-    <div
+    <section
       ref={scrollRef}
-      className="w-full h-full absolute   top-0 right-0 body-childHome overflow-y-scroll z-20"
+      className="w-full h-full relative  body-childHome overflow-y-scroll z-20"
     >
-      <HeaderChild isVisible={isVisible}  />
-      <div className="px-5 py-10 bg-gradient-to-t pb-4 from-[#ff9e7512] shadow to-[#FF9F75] flex gap-5 w-full">
+      <BackgroundPageByImage color={color} setColor={setColor} imageUrl="https://seeded-session-images.scdn.co/v2/img/540/r/artist/5dfZ5uSmzR7VQK0udbAVpf/vi" />
+      <HeaderChild color={bgHeader} isVisible={isVisible} />
+      <div style={{
+        backgroundImage: `linear-gradient(0deg, transparent 0%, ${darkColor}  100%)`,
+
+      }} className={`p-5 pt-10  flex gap-5 w-full shadow-lg shadow-[${darkColor}]`}>
         <div className="max-w-[180px] shadow-[#4d3024] shadow-lg aspect-square rounded-2xl overflow-hidden">
           <img
             className="w-full aspect-square  object-cover"
@@ -74,6 +84,6 @@ export default function PlaylistPage(props: IPlaylistPageProps) {
         <ListSongInPlaylist scrollToTop={isVisible} />
       </div>
       <FooterChild />
-    </div>
+    </section>
   );
 }
