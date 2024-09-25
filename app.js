@@ -8,6 +8,8 @@ const path = require("path");
 const adminService = require("./services/admin.service");
 const privateRoute = require("./routes/index.admin.route");
 const clientRouter = require("./routes/index.client.route");
+require("dotenv").config();
+
 // serve static
 app.use(express.static(path.join(__dirname, "public")));
 // Sử dụng bodyParser để phân tích nội dung của yêu cầu
@@ -41,16 +43,21 @@ app.use((req, res) => {
   res.status(404).send("404 not found");
 });
 // connect Mongo DB
-mongoose.connect("mongodb://127.0.0.1:27017/spotify?directConnection=true", {
-  autoIndex: true,
-});
+// mongoose.connect("mongodb://127.0.0.1:27017/spotify?directConnection=true", {
+//   autoIndex: true,
+// });
+mongoose.connect(process.env.MONGO_URL).then(() => {
+  console.log("DB connected");
+}).catch((err) => {
+  console.log("error connect", err);
+})
 // Even connect\
 mongoose.connection.once("open", async () => {
   await adminService.checkDefault();
   console.log("DB connected");
 
   // Listen Port 3000
-  app.listen(3000, () => {
+  app.listen(process.env.PORT, () => {
     console.log("Server is running on port 3000");
   });
 });
